@@ -19,11 +19,11 @@ export class UserService {
     return this.userRepository.find();
   }
 
-  findUserById(id: string): Promise<User | null> {
+  findUserById(id: number): Promise<User | null> {
     return this.userRepository.findOneBy({ id });
   }
 
-  async remove(id: string): Promise<void> {
+  async remove(id: number): Promise<void> {
     await this.userRepository.delete({ id });
   }
 }

@@ -19,7 +19,7 @@ export class UserController {
   }
 
   @Get('find/:id')
-  async findUserById(@Body('id') id: string): Promise<User | null> {
+  async findUserById(@Body('id') id: number): Promise<User | null> {
     return await this.userService.findUserById(id);
   }
 }
