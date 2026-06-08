@@ -1,22 +1,33 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, Column } from 'typeorm';
+// import { Product } from '../../products/products.entity';
 
 @Entity()
 export class User {
-  constructor(id: number, firstName: string, email: string, password: string) {
+  constructor(
+    id: string,
+    name: string,
+    email: string,
+    password: string,
+    // product: Product[],
+  ) {
     this.id = id;
-    this.firstName = firstName;
+    this.name = name;
     this.email = email;
     this.password = password;
+    // this.product = product;
   }
-  @PrimaryGeneratedColumn()
-  id: number;
+  @Column({ primary: true })
+  id: string;
 
   @Column()
-  firstName: string;
+  name: string;
 
   @Column()
   email: string;
 
   @Column()
   password: string;
+
+  // @OneToMany((type) => Product, (product) => product.user)
+  // product: Product[];
 }

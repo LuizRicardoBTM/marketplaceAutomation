@@ -1,6 +1,8 @@
 import { DataSource } from 'typeorm';
+import 'dotenv/config';
+import { User } from '../user/entity/user.entity';
 
-export const databaseProviders = [
+export const databaseProvider = [
   {
     provide: 'DATA_SOURCE',
     useFactory: async () => {
@@ -11,7 +13,7 @@ export const databaseProviders = [
         username: 'postgres',
         password: process.env.POSTGRES_PASSWORD,
         database: 'marketplace',
-        entities: [__dirname + '/**/*.entity{.ts,.js}'],
+        entities: [User],
         synchronize: true,
       });
       return dataSource.initialize();
