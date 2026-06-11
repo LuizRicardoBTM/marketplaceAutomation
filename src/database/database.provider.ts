@@ -2,7 +2,7 @@ import { DataSource } from 'typeorm';
 import 'dotenv/config';
 import { User } from '../user/entity/user.entity';
 
-export const databaseProvider = [
+export const DatabaseProvider = [
   {
     provide: 'DATA_SOURCE',
     useFactory: async () => {

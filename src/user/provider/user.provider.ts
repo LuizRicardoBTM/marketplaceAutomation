@@ -1,7 +1,7 @@
 import { DataSource } from 'typeorm';
 import { User } from '../entity/user.entity';
 
-export const userProvider = [
+export const UserProvider = [
   {
     provide: 'USER_REPOSITORY',
     useFactory: (dataSource: DataSource) => dataSource.getRepository(User),
