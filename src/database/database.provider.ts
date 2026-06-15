@@ -1,6 +1,6 @@
 import { DataSource } from 'typeorm';
 import 'dotenv/config';
-import { User } from '../user/entity/user.entity';
+import { User } from '../user/interface/user.entity';
 
 export const DatabaseProvider = [
   {

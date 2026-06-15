@@ -6,7 +6,7 @@ import { UserController } from '../user/controller/user.controller';
 import { UserService } from '../user/service/user.service';
 import { DataSource } from 'typeorm';
 import { UserModule } from '../user/module/user.module';
-import { User } from '../user/entity/user.entity';
+import { User } from '../user/interface/user.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import 'dotenv/config';
 import { AuthModule } from '../auth/auth.module';
