@@ -9,6 +9,7 @@ import { UserModule } from '../user/module/user.module';
 import { User } from '../user/entity/user.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import 'dotenv/config';
+import { AuthModule } from '../auth/auth.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -20,8 +21,12 @@ import 'dotenv/config';
       database: 'marketplace',
       entities: [User],
       synchronize: true,
+      invalidWhereValuesBehavior: {
+        undefined: 'ignore',
+      },
     }),
     UserModule,
+    AuthModule,
   ],
   controllers: [AppController, ProductsController, UserController],
   providers: [AppService, UserService],
