@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import {
   Body,
   Controller,
@@ -9,7 +10,7 @@ import {
   Get,
 } from '@nestjs/common';
 import { AuthService } from '../service/auth.service';
-import { authGuard } from '../auth.guard';
+import { AuthGuard } from '../auth.guard';
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
@@ -20,7 +21,7 @@ export class AuthController {
     return this.authService.signIn(signInDTO.userName, signInDTO.password);
   }
 
-  @UseGuards(authGuard)
+  @UseGuards(AuthGuard)
   @Get('profile')
   getProfile(@Request() req: { user: string }) {
     return req.user;
